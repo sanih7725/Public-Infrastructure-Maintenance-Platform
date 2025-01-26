@@ -5,26 +5,26 @@
 (define-map project-nft-data
   { token-id: uint }
   {
-    project-id: uint,
     title: (string-ascii 100),
     completion-date: uint
   }
 )
 
-(define-public (mint-project-nft (project-id uint))
+(define-data-var nft-id-nonce uint u0)
+
+(define-public (mint-project-nft (title (string-ascii 100)))
   (let
-    ((project (unwrap! (contract-call? .project-management get-project project-id) (err u404))))
-    (asserts! (is-eq (get status project) "completed") (err u403))
-    (try! (nft-mint? project-nft project-id tx-sender))
+    ((new-id (+ (var-get nft-id-nonce) u1)))
+    (try! (nft-mint? project-nft new-id tx-sender))
     (map-set project-nft-data
-      { token-id: project-id }
+      { token-id: new-id }
       {
-        project-id: project-id,
-        title: (get title project),
+        title: title,
         completion-date: block-height
       }
     )
-    (ok true)
+    (var-set nft-id-nonce new-id)
+    (ok new-id)
   )
 )
 

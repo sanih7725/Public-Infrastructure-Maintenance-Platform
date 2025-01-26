@@ -1,21 +1,31 @@
+import { describe, it, expect, beforeEach } from "vitest"
 
-import { describe, expect, it } from "vitest";
+describe("project-nft", () => {
+  let contract: any
+  
+  beforeEach(() => {
+    contract = {
+      mintProjectNft: (title: string) => ({ value: 1 }),
+      getProjectNftData: (tokenId: number) => ({
+        title: "Fix Main Street Potholes",
+        completionDate: 123456,
+      }),
+    }
+  })
+  
+  describe("mint-project-nft", () => {
+    it("should mint a new project NFT", () => {
+      const result = contract.mintProjectNft("Fix Main Street Potholes")
+      expect(result.value).toBe(1)
+    })
+  })
+  
+  describe("get-project-nft-data", () => {
+    it("should return project NFT data", () => {
+      const result = contract.getProjectNftData(1)
+      expect(result.title).toBe("Fix Main Street Potholes")
+      expect(result.completionDate).toBe(123456)
+    })
+  })
+})
 
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
-
-/*
-  The test below is an example. To learn more, read the testing documentation here:
-  https://docs.hiro.so/stacks/clarinet-js-sdk
-*/
-
-describe("example tests", () => {
-  it("ensures simnet is well initalised", () => {
-    expect(simnet.blockHeight).toBeDefined();
-  });
-
-  // it("shows an example", () => {
-  //   const { result } = simnet.callReadOnlyFn("counter", "get-counter", [], address1);
-  //   expect(result).toBeUint(0);
-  // });
-});

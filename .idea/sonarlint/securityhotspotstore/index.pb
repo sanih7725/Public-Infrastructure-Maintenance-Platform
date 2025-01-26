@@ -9,3 +9,7 @@ K
 contracts/project-nft_.clar,b/e/be650b5206b5d2f751218d0b1c14e78ea57f8156
 V
 &contracts/citizen-achievement-nft.clar,b/7/b77b029d1a28b5bf288c05c6beac97b1391f53e2
+U
+%tests/citizen-achievement-nft.test.ts,6/f/6f687cf4342d69f7025589a9bfb9b03d50420c22
+J
+tests/project-nft_.test.ts,8/a/8a70df6f87a0a6f4bc9db7685e51ca032b28c12b
