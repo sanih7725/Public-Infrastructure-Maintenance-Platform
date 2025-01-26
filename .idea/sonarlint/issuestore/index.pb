@@ -5,3 +5,5 @@ Q
 !contracts/project-management.clar,b/c/bc56a5ed3afeae6040396ef037021ca8e193f5a2
 P
  contracts/citizen-reporting.clar,0/f/0f91a9fd3da588c2f1c03d0c82ba15b9a4f5b21c
+K
+contracts/project-nft_.clar,b/e/be650b5206b5d2f751218d0b1c14e78ea57f8156

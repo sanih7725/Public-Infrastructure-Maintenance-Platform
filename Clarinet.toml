@@ -9,6 +9,11 @@ requirements = []
 path = 'contracts/citizen-reporting.clar'
 clarity_version = 2
 epoch = 2.5
+
+[contracts.project-nft_]
+path = 'contracts/project-nft_.clar'
+clarity_version = 2
+epoch = 2.5
 [repl.analysis]
 passes = ['check_checker']
 
